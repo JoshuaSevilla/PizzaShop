@@ -8,19 +8,19 @@
             
             <md-input-container class="md-block">
                 <label>Correo electrónico</label>
-                <input required type="email" name="email" ng-model="$ctrl.user.email" />
+                <input required type="email" name="email" ng-model="$ctrl.user.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
                 <div ng-messages="userForm.email.$error" md-auto-hide="false">
-                    <div ng-message="required">
+                    <div ng-message="pattern">
                         Es necesario introducir un correo electrónico válido.
                     </div>
                 </div>
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Contraseña</label>
-                <input required type="password" name="password" ng-model="$ctrl.user.password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="La contraseña debe contener mayúsculas, minúsculas, letras y símbolos, además de tener una longitud mínima de 8 caracteres" />
+                <input required type="password" name="password" ng-model="$ctrl.user.password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
                 <div ng-messages="userForm.password.$error" md-auto-hide="false">
-                    <div ng-message="required">
-                        Es necesario introducir un correo electrónico válido.
+                    <div ng-message="pattern">
+                        La contraseña debe contener mayúsculas, minúsculas, letras y símbolos, además de tener una longitud mínima de 8 caracteres
                     </div>
                 </div>
             </md-input-container>
